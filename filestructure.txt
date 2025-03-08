@@ -1,0 +1,31 @@
+|-- README.md
+|-- backend
+    |-- .env
+    |-- config
+        |-- cloudinary.js
+        |-- db.js
+    |-- controllers
+        |-- authController
+            |-- login.js
+            |-- signup.js
+        |-- friendController
+            |-- handleRequest.js
+            |-- sendRequest.js
+        |-- postController
+            |-- createPost.js
+            |-- deletePost.js
+            |-- getAllPosts.js
+    |-- middleware
+        |-- auth.js
+    |-- models
+        |-- post.js
+        |-- user.js
+    |-- package-lock.json
+    |-- package.json
+    |-- routes
+        |-- authRouter.js
+        |-- friendRouter.js
+        |-- postRoutes.js
+    |-- server.js
+    |-- uploads
+    |-- utils
