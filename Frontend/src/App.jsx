@@ -12,6 +12,7 @@ import MainLayout from "./layouts/MainLayout";
 import ProtectedRoute from "./components/ProtectedRoute"; 
 import authStore from "./store/authStore"; // Zustand state for user authentication
 import AddPost from "./Pages/AddPost";
+import FriendRequest from "./Pages/FriendRequest";
 
 function App() {
 
@@ -157,6 +158,15 @@ function App() {
           element={
             <ProtectedRoute>
               <Friends/>
+            </ProtectedRoute>
+          }
+        />   
+
+        <Route
+          path="/user/request"
+          element={
+            <ProtectedRoute>
+              <FriendRequest/>
             </ProtectedRoute>
           }
         />    

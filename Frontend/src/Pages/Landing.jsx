@@ -7,6 +7,7 @@ import {
 } from "react-icons/fi";
 import { motion } from "framer-motion";
 import themeStore from "../store/themeStore";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 // Animation variants for Framer Motion
 const fadeInUp = {
@@ -27,12 +28,13 @@ const staggerContainer = {
 const Landing = () => {
   const { theme } = themeStore(); 
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate(); // Initialize navigation
 
   // Mock data
   const trendingPosts = [
-    { id: 1, user: "explorer_amy", likes: 3201, image: "https://source.unsplash.com/600x400/?travel" },
-    { id: 2, user: "foodie_luke", likes: 2109, image: "https://source.unsplash.com/600x400/?food" },
-    { id: 3, user: "urban_john", likes: 2807, image: "https://source.unsplash.com/600x400/?city" },
+    { id: 1, user: "explorer_amy", likes: 3201, image: "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+    { id: 2, user: "foodie_luke", likes: 2109, image: "https://images.pexels.com/photos/237272/pexels-photo-237272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
+    { id: 3, user: "urban_john", likes: 2807, image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" },
   ];
 
   const features = [
@@ -67,7 +69,11 @@ const Landing = () => {
         <motion.p variants={fadeInUp} initial="hidden" animate="visible" className="text-xl mb-8 opacity-80">
           Join a vibrant community of creators, photographers, and explorers.
         </motion.p>
-        <motion.button variants={fadeInUp} initial="hidden" animate="visible"
+        <motion.button 
+          variants={fadeInUp} 
+          initial="hidden" 
+          animate="visible"
+          onClick={() => navigate("/login")} // Navigate to Login Page
           className={`px-8 py-3 rounded-full text-lg font-semibold transition-all ${
             theme === "dark" ? "bg-purple-600 hover:bg-purple-700 text-white" : "bg-purple-500 hover:bg-purple-600 text-white"
           }`}
@@ -91,39 +97,80 @@ const Landing = () => {
       </section>
 
       {/* Trending Posts Section */}
-      <section className="py-20 px-6">
-        <h2 className="text-3xl font-bold text-center mb-12">Trending Now</h2>
-        <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {trendingPosts.map((post) => (
-            <motion.div key={post.id} variants={fadeInUp} className="rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800 hover:scale-105 transform transition">
-              <img src={post.image} alt={`Post by ${post.user}`} className="w-full h-64 object-cover" />
-              <div className="p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-semibold">@{post.user}</span>
-                  <div className="flex items-center gap-2">
-                    <FiHeart className="text-red-500" /> {post.likes}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+  {/* Trending Posts Section */}
+<section className="py-20 px-6">
+  <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+    Trending Now
+  </h2>
+  <motion.div
+    variants={staggerContainer}
+    initial="hidden"
+    animate="visible"
+    className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+  >
+    {trendingPosts.map((post) => (
+      <motion.div
+        key={post.id}
+        variants={fadeInUp}
+        className="rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800 hover:scale-105 transform transition"
+      >
+        <img src={post.image} alt={`Post by ${post.user}`} className="w-full h-64 object-cover" />
+        <div className="p-4">
+          <div className="flex items-center justify-between mb-2">
+            <span className="font-semibold transition-colors duration-300 
+              text-gray-900 dark:text-gray-200">
+              @{post.user}
+            </span>
+            <div className="flex items-center gap-2">
+              <FiHeart className="text-red-500" /> {post.likes}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    ))}
+  </motion.div>
+</section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-6 bg-gray-200 dark:bg-gray-800">
-        <h2 className="text-3xl font-bold text-center mb-12">What Our Users Say</h2>
-        <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <motion.div key={index} variants={fadeInUp} className="p-8 rounded-xl bg-white dark:bg-gray-900 shadow-lg hover:scale-105 transform transition flex flex-col items-center text-center">
-              <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full mb-4 border-2 border-purple-500" />
-              <p className="text-xl mb-4 italic">"{testimonial.text}"</p>
-              <h4 className="font-semibold">{testimonial.name}</h4>
-              <p className="opacity-80">{testimonial.role}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+      {/* Testimonials Section */}
+<section className="py-20 px-6 bg-gray-200 dark:bg-gray-800">
+  <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+    What Our Users Say
+  </h2>
+  <motion.div
+    variants={staggerContainer}
+    initial="hidden"
+    animate="visible"
+    className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+  >
+    {testimonials.map((testimonial, index) => (
+      <motion.div
+        key={index}
+        variants={fadeInUp}
+        className="p-8 rounded-xl bg-white dark:bg-gray-900 shadow-lg hover:scale-105 transform transition flex flex-col items-center text-center"
+      >
+        <img
+          src={testimonial.image}
+          alt={testimonial.name}
+          className="w-16 h-16 rounded-full mb-4 border-2 border-purple-500"
+        />
+        <p
+          className="text-xl mb-4 italic transition-colors duration-300 
+            text-gray-900 dark:text-gray-200"
+        >
+          "{testimonial.text}"
+        </p>
+        <h4 className="font-semibold text-gray-900 dark:text-white">
+          {testimonial.name}
+        </h4>
+        <p className="opacity-80 text-gray-700 dark:text-gray-400">
+          {testimonial.role}
+        </p>
+      </motion.div>
+    ))}
+  </motion.div>
+</section>
+
 
     </div>
   );

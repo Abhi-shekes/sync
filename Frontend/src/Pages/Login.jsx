@@ -30,15 +30,14 @@ const Login = () => {
     setError("");
 
     try {
-      // const resp = await axios.post(
-      //   "http://localhost:3000/login",
-      //   { username, password },
-      //   { withCredentials: true }
-      // );
+      const resp = await axios.post(
+        "http://localhost:3000/api/login",
+        { username, password },
+        { withCredentials: true }
+      );
 
-      // if (resp.data.status === "success") {
-      //   setConfirmation(resp.data.message);
-        setConfirmation("Login Successfull");
+      if (resp.data.status === "success") {
+        setConfirmation(resp.data.message);
         setTimeout(() => {
           setLogIn({
             user: username,
@@ -46,9 +45,9 @@ const Login = () => {
           });
           navigate("/user/dashboard");
         }, 1000);
-      // } else {
-      //   setError(resp.data.message);
-      // }
+      } else {
+        setError(resp.data.message);
+      }
     } catch (err) {
       setError(
         err.response?.data?.message || "An error occurred. Please try again."

@@ -57,7 +57,7 @@ const Sidebar = () => {
     { label: 'Dashboard', icon: Home, to: '/user/dashboard' },
     { label: 'Add Post', icon: TrendingUp, to: '/user/create' },
     { label: 'Friends', icon: TrendingUp, to: '/user/friends' },
-    { label: 'Profile', icon: User, to: '/user/profile' },
+    { label: 'Requests', icon: User, to: '/user/request' },
     { label: 'Settings', icon: Settings, to: '/user/settings' },
   ];
 
