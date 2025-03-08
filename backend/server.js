@@ -12,9 +12,10 @@ const app = express();
 connectDB();
 
 app.use(express.json()); // For parsing JSON bodies
-app.use(cors()); // Enable CORS for all origins
-
-
+app.use(cors({
+  origin:'*', // Change to your frontend URL
+  credentials: true,
+}));
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));

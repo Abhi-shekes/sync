@@ -4,6 +4,7 @@
     |-- README.md
     |-- eslint.config.js
     |-- index.html
+    |-- package-lock.json
     |-- package.json
     |-- postcss.config.js
     |-- public
@@ -14,6 +15,7 @@
             |-- About.jsx
             |-- AddPost.jsx
             |-- Dashboard.jsx
+            |-- FriendRequest.jsx
             |-- Friends.jsx
             |-- Landing.jsx
             |-- Login.jsx
@@ -21,6 +23,7 @@
             |-- Signup.jsx
         |-- components
             |-- CommentModal.jsx
+            |-- EditPostModal.jsx
             |-- Footer.jsx
             |-- Header.jsx
             |-- ProtectedRoute.jsx

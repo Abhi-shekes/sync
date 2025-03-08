@@ -9,12 +9,15 @@ import EditPostModal from "../components/EditPostModal";
 const Dashboard = () => {
   const { theme } = themeStore((state) => state);
 
+
+  
+
   // Sample Posts (Replace with API)
   const [posts, setPosts] = useState([
     {
       id: 1,
       user: "john_doe",
-      image: "https://source.unsplash.com/random/400x300?nature",
+      image: "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       caption: "Enjoying the sunset! 🌅",
       likes: 120,
       comments: [
@@ -26,7 +29,7 @@ const Dashboard = () => {
     {
       id: 2,
       user: "alice_wonder",
-      image: "https://source.unsplash.com/random/400x300?travel",
+      image:"https://images.pexels.com/photos/237272/pexels-photo-237272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       caption: "Exploring the mountains! 🏔️",
       likes: 85,
       comments: [
