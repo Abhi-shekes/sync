@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
   friends: [{ type: mongoose.Schema.Types.ObjectId, ref: "users" }],
   friendRequests: [
     {
-      sender: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+      sender: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
       status: { type: String, enum: ["pending", "accepted", "rejected"] },
     },
   ],

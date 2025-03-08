@@ -1,3 +1,41 @@
+|-- Frontend
+    |-- .gitignore
+    |-- Landing.jsx
+    |-- README.md
+    |-- eslint.config.js
+    |-- index.html
+    |-- package.json
+    |-- postcss.config.js
+    |-- public
+        |-- vite.svg
+    |-- src
+        |-- App.jsx
+        |-- Pages
+            |-- About.jsx
+            |-- AddPost.jsx
+            |-- Dashboard.jsx
+            |-- Friends.jsx
+            |-- Landing.jsx
+            |-- Login.jsx
+            |-- Page404.jsx
+            |-- Signup.jsx
+        |-- components
+            |-- CommentModal.jsx
+            |-- Footer.jsx
+            |-- Header.jsx
+            |-- ProtectedRoute.jsx
+            |-- Sidebar.jsx
+            |-- TopSearchBar.jsx
+        |-- index.css
+        |-- layouts
+            |-- MainLayout.jsx
+            |-- PublicLayout.jsx
+        |-- main.jsx
+        |-- store
+            |-- authStore.js
+            |-- themeStore.js
+    |-- tailwind.config.js
+    |-- vite.config.js
 |-- README.md
 |-- backend
     |-- .env
@@ -15,6 +53,7 @@
         |-- postController
             |-- createPost.js
             |-- deletePost.js
+            |-- editPost.js
             |-- getAllPosts.js
     |-- middleware
         |-- auth.js
